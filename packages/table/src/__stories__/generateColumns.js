@@ -1,8 +1,8 @@
-export default function generateColumns(count = 10) {
-  return new Array(count).fill(0).map((column, columnIndex) => ({
-    key: `column-${columnIndex}`,
-    dataKey: `column-${columnIndex}`,
+export default (count = 10, prefix = "column-", props) =>
+  new Array(count).fill(0).map((column, columnIndex) => ({
+    ...props,
+    key: `${prefix}${columnIndex}`,
+    dataKey: `${prefix}${columnIndex}`,
     title: `Column ${columnIndex}`,
     width: 150
   }));
-}
